@@ -5,10 +5,11 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     display.cpp \
-    renderer.cpp
+    renderer.cpp \
+    texture.cpp
 
-LIBS += -L ../lib -lglfw3 -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
 INCLUDEPATH += ../include
+LIBS += -L ../lib -lglfw3 -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
 
 CONFIG = c++11
 
@@ -17,4 +18,5 @@ qtcAddDeployment()
 
 HEADERS += \
     display.h \
-    renderer.h
+    renderer.h \
+    texture.h

@@ -49,9 +49,13 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../sources/main.cpp \
-		../sources/display.cpp 
+		../sources/display.cpp \
+		../sources/renderer.cpp \
+		../sources/texture.cpp 
 OBJECTS       = main.o \
-		display.o
+		display.o \
+		renderer.o \
+		texture.o
 DIST          = ../../../.qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../.qt/5.5/clang_64/mkspecs/qdevice.pri \
 		../../../.qt/5.5/clang_64/mkspecs/features/device_config.prf \
@@ -179,8 +183,12 @@ DIST          = ../../../.qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../.qt/5.5/clang_64/mkspecs/features/mac/default_post.prf \
 		../../../.qt/5.5/clang_64/mkspecs/features/mac/objective_c.prf \
 		../../../.qt/5.5/clang_64/mkspecs/features/c++11.prf \
-		../sources/DarkTerror.pro display.h ../sources/main.cpp \
-		../sources/display.cpp
+		../sources/DarkTerror.pro display.h \
+		renderer.h \
+		texture.h ../sources/main.cpp \
+		../sources/display.cpp \
+		../sources/renderer.cpp \
+		../sources/texture.cpp
 QMAKE_TARGET  = DarkTerror
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = DarkTerror
@@ -515,6 +523,12 @@ main.o: ../sources/main.cpp ../sources/display.h
 
 display.o: ../sources/display.cpp ../sources/display.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o display.o ../sources/display.cpp
+
+renderer.o: ../sources/renderer.cpp ../sources/renderer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o renderer.o ../sources/renderer.cpp
+
+texture.o: ../sources/texture.cpp ../sources/texture.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o texture.o ../sources/texture.cpp
 
 ####### Install
 
