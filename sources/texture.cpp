@@ -28,3 +28,12 @@ Texture::Texture(std::string path)
     stbi_image_free(data);
 }
 
+int Texture::getWidth() const
+{
+    return width;
+}
+
+int Texture::getHeight() const
+{
+    return height;
+}

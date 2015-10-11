@@ -6,7 +6,9 @@ CONFIG -= qt
 SOURCES += main.cpp \
     display.cpp \
     renderer.cpp \
-    texture.cpp
+    texture.cpp \
+    entity.cpp \
+    vector2.cpp
 
 INCLUDEPATH += ../include
 LIBS += -L ../lib -lglfw3 -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
@@ -19,4 +21,6 @@ qtcAddDeployment()
 HEADERS += \
     display.h \
     renderer.h \
-    texture.h
+    texture.h \
+    entity.h \
+    vector2.h

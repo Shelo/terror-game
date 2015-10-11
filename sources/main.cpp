@@ -2,6 +2,7 @@
 #include <OpenGL/gl.h>
 #include "display.h"
 #include <texture.h>
+#include "vector2.h"
 
 int main()
 {
@@ -9,7 +10,10 @@ int main()
 
     glClearColor(0, 0, 0, 0);
 
-    Texture texture("../res/textures/bricks.jpg");
+    Vector2 v(1, 1);
+    Vector2 v2 = v.normalized();
+
+    std::cout << (v + v2).x << std::endl;
 
     while (!display.isCloseRequested()) {
         glClear(GL_COLOR_BUFFER_BIT);

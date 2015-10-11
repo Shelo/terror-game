@@ -13,6 +13,9 @@ private:
 
 public:
     Texture(std::string path);
+
+    int getWidth() const;
+    int getHeight() const;
 };
 
 #endif // TEXTURE_H

@@ -51,11 +51,15 @@ OBJECTS_DIR   = ./
 SOURCES       = ../sources/main.cpp \
 		../sources/display.cpp \
 		../sources/renderer.cpp \
-		../sources/texture.cpp 
+		../sources/texture.cpp \
+		../sources/entity.cpp \
+		../sources/vector2.cpp 
 OBJECTS       = main.o \
 		display.o \
 		renderer.o \
-		texture.o
+		texture.o \
+		entity.o \
+		vector2.o
 DIST          = ../../../.qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../.qt/5.5/clang_64/mkspecs/qdevice.pri \
 		../../../.qt/5.5/clang_64/mkspecs/features/device_config.prf \
@@ -185,10 +189,14 @@ DIST          = ../../../.qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../.qt/5.5/clang_64/mkspecs/features/c++11.prf \
 		../sources/DarkTerror.pro display.h \
 		renderer.h \
-		texture.h ../sources/main.cpp \
+		texture.h \
+		entity.h \
+		vector2.h ../sources/main.cpp \
 		../sources/display.cpp \
 		../sources/renderer.cpp \
-		../sources/texture.cpp
+		../sources/texture.cpp \
+		../sources/entity.cpp \
+		../sources/vector2.cpp
 QMAKE_TARGET  = DarkTerror
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = DarkTerror
@@ -529,6 +537,12 @@ renderer.o: ../sources/renderer.cpp ../sources/renderer.h
 
 texture.o: ../sources/texture.cpp ../sources/texture.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o texture.o ../sources/texture.cpp
+
+entity.o: ../sources/entity.cpp ../sources/entity.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o entity.o ../sources/entity.cpp
+
+vector2.o: ../sources/vector2.cpp ../sources/vector2.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o vector2.o ../sources/vector2.cpp
 
 ####### Install
 
