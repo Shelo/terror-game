@@ -12,7 +12,6 @@ public:
     Display(GLuint width, GLuint height, std::string title);
     void update();
     bool isCloseRequested();
-    ~Display();
 
     GLuint getWidth()
     {
@@ -22,6 +21,11 @@ public:
     GLuint getHeight()
     {
         return height;
+    }
+
+    ~Display()
+    {
+        std::cout << "Display destroyed" << std::endl;
     }
 
 private:

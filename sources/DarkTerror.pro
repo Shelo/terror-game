@@ -8,7 +8,9 @@ SOURCES += main.cpp \
     renderer.cpp \
     texture.cpp \
     entity.cpp \
-    vector2.cpp
+    vector2.cpp \
+    scene.cpp \
+    application.cpp
 
 INCLUDEPATH += ../include
 LIBS += -L ../lib -lglfw3 -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
@@ -23,4 +25,6 @@ HEADERS += \
     renderer.h \
     texture.h \
     entity.h \
-    vector2.h
+    vector2.h \
+    scene.h \
+    application.h

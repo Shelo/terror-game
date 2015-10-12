@@ -53,13 +53,17 @@ SOURCES       = ../sources/main.cpp \
 		../sources/renderer.cpp \
 		../sources/texture.cpp \
 		../sources/entity.cpp \
-		../sources/vector2.cpp 
+		../sources/vector2.cpp \
+		../sources/scene.cpp \
+		../sources/application.cpp 
 OBJECTS       = main.o \
 		display.o \
 		renderer.o \
 		texture.o \
 		entity.o \
-		vector2.o
+		vector2.o \
+		scene.o \
+		application.o
 DIST          = ../../../.qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../.qt/5.5/clang_64/mkspecs/qdevice.pri \
 		../../../.qt/5.5/clang_64/mkspecs/features/device_config.prf \
@@ -191,12 +195,16 @@ DIST          = ../../../.qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		renderer.h \
 		texture.h \
 		entity.h \
-		vector2.h ../sources/main.cpp \
+		vector2.h \
+		scene.h \
+		application.h ../sources/main.cpp \
 		../sources/display.cpp \
 		../sources/renderer.cpp \
 		../sources/texture.cpp \
 		../sources/entity.cpp \
-		../sources/vector2.cpp
+		../sources/vector2.cpp \
+		../sources/scene.cpp \
+		../sources/application.cpp
 QMAKE_TARGET  = DarkTerror
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = DarkTerror
@@ -526,7 +534,9 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../sources/main.cpp ../sources/display.h
+main.o: ../sources/main.cpp ../sources/application.h \
+		../sources/scene.h \
+		../sources/renderer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../sources/main.cpp
 
 display.o: ../sources/display.cpp ../sources/display.h
@@ -543,6 +553,15 @@ entity.o: ../sources/entity.cpp ../sources/entity.h
 
 vector2.o: ../sources/vector2.cpp ../sources/vector2.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o vector2.o ../sources/vector2.cpp
+
+scene.o: ../sources/scene.cpp ../sources/scene.h \
+		../sources/renderer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scene.o ../sources/scene.cpp
+
+application.o: ../sources/application.cpp ../sources/application.h \
+		../sources/scene.h \
+		../sources/renderer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o application.o ../sources/application.cpp
 
 ####### Install
 

@@ -29,8 +29,3 @@ bool Display::isCloseRequested()
 {
     return (bool) glfwWindowShouldClose(window);
 }
-
-Display::~Display()
-{
-
-}

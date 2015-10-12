@@ -1,24 +1,36 @@
 #include <iostream>
-#include <OpenGL/gl.h>
-#include "display.h"
-#include <texture.h>
-#include "vector2.h"
+#include "application.h"
+
+class FirstScene : public Scene
+{
+public:
+    FirstScene() {}
+
+    void onCreate()
+    {
+        newEntity(0, 0);
+        newEntity(0, 0);
+        newEntity(0, 0);
+        newEntity(0, 0);
+        newEntity(0, 0);
+        newEntity(0, 0);
+    }
+
+    void onUpdate(float delta)
+    {
+        
+    }
+
+    void onRender(Renderer &renderer)
+    {
+        
+    }
+};
 
 int main()
 {
-    Display display(800, 480, "Hello, World!");
-
-    glClearColor(0, 0, 0, 0);
-
-    Vector2 v(1, 1);
-    Vector2 v2 = v.normalized();
-
-    std::cout << (v + v2).x << std::endl;
-
-    while (!display.isCloseRequested()) {
-        glClear(GL_COLOR_BUFFER_BIT);
-        display.update();
-    }
+    Application app(800, 480, "DarkTerror Engine", new FirstScene());
+    app.start(60);
 
     return 0;
 }
